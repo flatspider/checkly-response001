@@ -20,7 +20,8 @@ test("get favorite pokemon and verify type", async ({ request }) => {
     expect(response).toBeOK()
 
     const pokemonForm = await response.json()
-    pokemonFormURL = pokemonForm.forms.url
+    // Access first element in forms array
+    pokemonFormURL = pokemonForm.forms[0].url
   })
 
   await test.step("verify pokemon type", async () => {
@@ -28,7 +29,10 @@ test("get favorite pokemon and verify type", async ({ request }) => {
     expect(response).toBeOK()
 
     const pokemonForm = await response.json()
-    const pokemonType = pokemonForm.types[0].type
+    
+    console.log('About to visit:', pokemonForm)
+    // Access name of pokemon type
+    const pokemonType = pokemonForm.types[0].type.name
     expect(pokemonType).toBe('electric')
   })
 })
