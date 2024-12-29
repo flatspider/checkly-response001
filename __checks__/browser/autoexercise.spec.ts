@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
+  // Consent button depends on region
   await page.goto('https://www.automationexercise.com/');
-  //const consentButton = page.getByRole("button", { name: "Consent"});
-  //await consentButton.click()
+  const consentButton = page.getByRole("button", { name: "Consent"});
+  await consentButton.click()
   await page.getByRole('link', { name: ' Products' }).click();
   const searchBar = page.getByPlaceholder('Search Product');
   expect(searchBar).toBeVisible;
