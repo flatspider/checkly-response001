@@ -25,16 +25,10 @@ for (const user of usersList) {
             value: `Bearer ${token}`,
           }
         ],
-        queryParameters: [
-          {
-            key: 'myParam',
-            value: 'true'
-          }
-        ],
         assertions: [
             AssertionBuilder.statusCode().equals(200),
-            AssertionBuilder.jsonBody('$.name').notEmpty(),
             AssertionBuilder.jsonBody('$.name').equals(user.name),
+            AssertionBuilder.jsonBody('$.id').equals(user.id),
         ]
       }
   })
