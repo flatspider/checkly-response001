@@ -7,7 +7,7 @@ test('test', async ({ page }) => {
   await page.getByRole('link', { name: ' Products' }).click();
   const searchBar = page.getByPlaceholder('Search Product');
   expect(searchBar).toBeVisible;
-  const addBlueTopButton = page.locator('div.productinfo a[data-product-id="1"]')
+  const addBlueTopButton = page.locator('div.productinfo a[data-product-id="1"]').first()
   await addBlueTopButton.click()
   const modalHeading = page.getByRole("heading", { name: "Added!"});
   expect(modalHeading).toBeVisible;
