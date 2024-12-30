@@ -1,4 +1,5 @@
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
+import {groupAPI} from '../groups/group.check'
 import dotenv from 'dotenv';
 const usersJSON = require('./userURLs.json');
 
@@ -11,6 +12,7 @@ const token = process.env.BEARER_AUTH_TOKEN;
 for (const user of usersList) {
   new ApiCheck(`check_user_${user.id}`, {
     name: `User ${user.name}`,
+    group: groupAPI,
     request: {
         method: 'GET',
         url: user.profile_url,
