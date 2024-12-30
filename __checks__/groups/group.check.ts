@@ -19,8 +19,7 @@ export const groupBrowser = new CheckGroup('check-group-browser', {
     },
 })
 
-// 2) A Group for all API Checks
-// Exporting a check group object with name check-group-api as the variable groupAPI
+// 2) A Group for api checks
 export const groupAPI = new CheckGroup('check-group-api', {
   name: 'All API Checks',
   activated: true,
@@ -31,13 +30,3 @@ export const groupAPI = new CheckGroup('check-group-api', {
   // Optionally you can set a frequency here if you have code-based checks
   // frequency: Frequency.EVERY_15M,
 })
-
-
-new ApiCheck('test-check-001', {
-    name: 'API check #1',
-    group: groupAPI,
-    request: {
-      method: 'GET',
-      url: 'https://mac-demo-repo.vercel.app/api/hello',
-    }
-  })
