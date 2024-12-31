@@ -42,14 +42,13 @@ BEARER_AUTH_TOKEN=c23w21-1q8
 
 Run `npx playwright test` to test the browser checks locally.
 
-Note: AutomationExercise.com test only passes in the eu-region. When the test is run in a us-region a consent button is not provided. The test will wait for a button that never loads and fail to complete.
-
 Run `npx checkly test` to ensure all tests are being created properly and passing.
+
+Note: AutomationExercise.com test only passes in the eu-region. When the test is run in a us-region a consent button is not provided. The test will wait for a button that never loads and fail to complete.
 
 ## Deploy Project to Checkly
 
-To include your secret variable, run
-`npx checkly deploy` to deploy your checks to [Checkly](https://www.app.checklyhq.com), attach alert channels for your email, and run them on a schedule.
+To deploy, run `npx checkly deploy` to have your checks live in the cloud at [Checkly](https://www.app.checklyhq.com). This will attach alert channels for your email and run the checks on a schedule.
 
 There you go! You should have a functioning Checkly project.
 
