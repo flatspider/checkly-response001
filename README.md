@@ -4,7 +4,7 @@ This project contains functional tests for AutomationExercise.com and the Poke A
 
 ## Project Structure
 
-This project has your tests contained within the **checks** folder.
+This project has your tests (and check group definitions) contained within the `__checks__` folder.
 
 ```
 .
@@ -19,27 +19,41 @@ This project has your tests contained within the **checks** folder.
 
 ## Pull Down Files
 
-Run the "git clone https://github.com/flatspider/checkly-response001.git" command to pull down all of the files.
+Run the "git clone https://github.com/flatspider/checkly-response001.git" command to pull down all the code files for this Checkly project.
+
+cd checkly-response001/ to move into the folder
+
+Run "npm install" to download all project dependencies
 
 ## Test Project Locally
 
-Run npm install to download all required dependencies.
+Run npx playwright test to test the Browser Checks locally using Playwright.
 
-You will need to establish a .env file with the proper auth token or run
+Note: AutomationExercise.com test will fail to complete the test. When a consent button is not provided in the US region, the test will wait for a button that never loads and fail to complete.
 
-To test your check on Checkly before deploying it, run:
+Run npx checkly test to ensure all tests are being created properly and passing.
+
+Manage the required auth token for the API check by running this command:
 
 ```
  npx checkly test -e BEARER_AUTH_TOKEN=<your_auth_token>
 
 ```
 
-- Running `npx checkly test` will look for `.check.ts` files and `.spec.ts` in `__checks__` directories and execute them in a dry run.
+This project does not need Bearer pre-pended. So if the token is "Bearer c23w21-1q8" then the command to run is
 
-- Running `npx checkly deploy` will deploy your checks to Checkly, attach alert channels, and run them on a 10m schedule in the
-  region `us-east-1` and `eu-west-1`
+```
+ npx checkly test -e BEARER_AUTH_TOKEN=c23w21-1q8
 
-## CLI Commands
+```
+
+## Deploy Project to Checkly
+
+Run `npx checkly deploy` to deploy your checks to [Checkly](https://www.app.checklyhq.com), attach alert channels, and run them on a schedule.
+
+There you go! You should have a functioning Checkly project.
+
+## CLI Commands Info
 
 Run the core CLI commands with `npx checkly <command>`
 
@@ -51,17 +65,3 @@ Run the core CLI commands with `npx checkly <command>`
 | `npx checkly --help` | Show help for each command.             |
 
 [Check the docs for the full CLI reference](https://www.checklyhq.com/docs/cli/command-line-reference/).
-
-## Adding and running `@playwright/test`
-
-You can add `@playwright/test` to this project to get full code completion and run `.spec.ts` files for local debugging.
-It's best to install the Playwright npm package version that matches your [Checkly runtime](https://www.checklyhq.com/docs/cli/npm-packages/).
-
-```bash
-npm install --save-dev @playwright/test@1.38.1
-```
-
-## Questions?
-
-Check [our CLI docs](https://www.checklyhq.com/docs/cli/), the [main Checkly docs](https://checklyhq.com/docs) or
-join our [Slack community](https://checklyhq.com/slack).
