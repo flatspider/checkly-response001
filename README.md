@@ -27,30 +27,29 @@ Run `npm install` to download all project dependencies and allow you to run Play
 
 ## Test Project Locally
 
+Manage the required auth token for the API check by adding this variable to your .env file:
+
+```
+BEARER_AUTH_TOKEN=<your_auth_token>
+
+```
+
+This project does not need Bearer pre-pended. So if the token is "Bearer c23w21-1q8" then the code in the .env file is:
+
+```
+BEARER_AUTH_TOKEN=c23w21-1q8
+```
+
 Run `npx playwright test` to test the browser checks locally.
 
 Note: AutomationExercise.com test only passes in the eu-region. When the test is run in a us-region a consent button is not provided. The test will wait for a button that never loads and fail to complete.
 
-Run npx checkly test to ensure all tests are being created properly and passing.
-
-Manage the required auth token for the API check by running this command:
-
-```
- npx checkly test -e BEARER_AUTH_TOKEN=<your_auth_token>
-
-```
-
-This project does not need Bearer pre-pended. So if the token is "Bearer c23w21-1q8" then the command to run is:
-
-```
- npx checkly test -e BEARER_AUTH_TOKEN=c23w21-1q8
-
-```
+Run `npx checkly test` to ensure all tests are being created properly and passing.
 
 ## Deploy Project to Checkly
 
 To include your secret variable, run
-`BEARER_AUTH_TOKEN=c23w21-1q8 npx checkly deploy` to deploy your checks and establish the BEARER_AUTH_TOKEN environmental variable to [Checkly](https://www.app.checklyhq.com), attach alert channels, and run them on a schedule.
+`npx checkly deploy` to deploy your checks to [Checkly](https://www.app.checklyhq.com), attach alert channels for your email, and run them on a schedule.
 
 There you go! You should have a functioning Checkly project.
 
