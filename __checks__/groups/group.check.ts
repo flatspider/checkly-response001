@@ -1,6 +1,7 @@
 import { CheckGroup, Frequency, ApiCheck } from 'checkly/constructs'
 import { userEmail } from '../../alert_channels/email'
 
+
 // 1) Applies to all browser checks in the __checks__/**/*.spec.ts location
 
 export const groupBrowser = new CheckGroup('check-group-browser', {
@@ -14,9 +15,8 @@ export const groupBrowser = new CheckGroup('check-group-browser', {
   // Here we define how to pick up any .spec files that should belong to this group
   browserChecks: {
     frequency: Frequency.EVERY_30M,
-    // If your tests are in TypeScript:
-    testMatch: '**/__checks__/**/*.spec.ts'
-    },
+    testMatch: '../**/__checks__/**/*.spec.ts'
+  }
 })
 
 // 2) A Group for api checks
