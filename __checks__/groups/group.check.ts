@@ -15,7 +15,7 @@ export const groupBrowser = new CheckGroup('check-group-browser', {
   // Here we define how to pick up any .spec files that should belong to this group
   browserChecks: {
     frequency: Frequency.EVERY_30M,
-    testMatch: '../**/__checks__/**/*.spec.ts'
+    testMatch: '../browser/**/*.spec.ts'
   }
 })
 
