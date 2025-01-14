@@ -4,7 +4,9 @@ This Checkly project contains browser tests for AutomationExercise.com and the P
 
 ## Project Structure
 
-This project has your tests (and check group definitions) contained within the `__checks__` folder.
+This project has your tests (and check group definitions) contained within the `__checks__` folder. The first file is the generated API check. The second file is the browser check. The third file explicitly defines the check groups.
+
+The `checkly.config.ts` file contains the Checkly configuration outline which mainly sets the location of checks/tests as well as default values.
 
 ```
 .
